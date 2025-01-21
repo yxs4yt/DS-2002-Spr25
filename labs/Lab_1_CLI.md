@@ -2,7 +2,7 @@
 
 Follow all the steps below for practice with the command line. At the bottom are instructions for commands you should write for each prompt, saved to a GitHub Gist you create and save. Copy and Paste the Gist URL to the Lab assignment page for grading.
 
-You can use the <a href="https://github.com/codespaces/" target="_new"><b>GitHub Codespaces</b></a> for these exercises. Open that page and click on "New Codespace" and select a repository.
+You can use the <a href="https://shell.cloud.google.com/" target="_new"><b>Google Cloud Shell</b></a> or <a href="https://github.com/codespaces/" target="_new"><b>GitHub Codespaces</b></a> for these exercises. If you choose GitHub Codespaces, open that page and click on "New Codespace" and select a repository.
 
 > **Advanced Users** - For an additional challenge, complete these exercises on your local laptop using either the MacOS Terminal (Mac) or WSL Terminal (Windows). You may need to modify some commands accordingly.
 
@@ -663,4 +663,4 @@ Now complete the following steps on your own. Save the commands necessary to com
 
 10. Write a line of code that exports a `FAVORITE_FLAVOR` environment variable, with a corresponding value (vanilla, caramel, salty, chocolate, etc.) into your `~/.bashrc` file.
 
-Also be sure to indicate which environment you used to complete these steps: GitHub Codespaces, MacOS, Windows WSL, etc.
+Also be sure to indicate which environment you used to complete these steps: Google Cloud Shell, GitHub Codespaces, MacOS, Windows WSL, etc.

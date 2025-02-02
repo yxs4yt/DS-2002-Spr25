@@ -41,11 +41,11 @@ Add the URL to your GitHub Profile page to the GitHub Gist.
 
 ## 4. Fork a Repository and Submit a Pull Request
 
-1. Go to https://github.com/austin-t-rivera/ds2002-directory/ and fork the repository by clicking on the FORK button in the upper-right of the page. Create the fork in your own GitHub account.
+1. Go to https://github.com/austin-t-rivera/ds_2002-directory/ and fork the repository by clicking on the FORK button in the upper-right of the page. Create the fork in your own GitHub account.
 2. Clone your fork to your local computer, or open it in a GitHub Codespace.
 3. Within the `people` directory create a subdirectory named with your computing ID, i.e. `nem2p` or `mst3k`, etc.
 4. Inside of that subdirectory, create a `README.md` file.
-5. Paste the code below into that file, and fill out the appropriate fields. If you'd like to include an image of yourself (jpg, png, gif, etc.) add it to your subdirectory as well. Introduce yourselves! If you need an example for reference, see [this page](../people/atr8ec/README.md). Here is a Markdown [reference](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) for formatting your page.
+5. Paste the code below into that file, and fill out the appropriate fields. If you'd like to include an image of yourself (jpg, png, gif, etc.) add it to your subdirectory as well. Introduce yourselves! If you need an example for reference, see [this page](https://github.com/austin-t-rivera/ds_2002-directory/blob/ecbac67d680d881c7a5b50d133998529e1d1e591/people/atr8ec/README.md). Here is a Markdown [reference](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) for formatting your page.
 
     Be sure the first line uses the `#` character followed by your name.
 

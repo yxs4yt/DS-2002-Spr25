@@ -1,20 +1,29 @@
 # Lab 3: Basic Scripting
 
-Follow the steps below for practice with writing scripts. There are two scripts you will develop in this lab - one in `bash` and one in `python3`. Commit both to your `ds2002-scripts` repository and submit the URL to your repo for grading.
+Follow the steps below for practice with writing scripts. In this lab, you will be creating two Python scripts: `github-events.py` and `env-vars.py`. Additionally, you will be editing one shell script, your `~/.bashrc` file (Windows) or your `~/.zshrc` file (Mac). You may also choose to use Google Cloud Shell, like we have during class, which by default uses `bash`, and therefore would have the `~/.bashrc` file.
 
-## 3. Use Python to fetch remote data
+<br>
+
+## Initial Setup
+1. Ensure that you have forked and recently synced the [**DS-2002-Spr25**](https://github.com/austin-t-rivera/DS-2002-Spr25) repository.
+2. Ensure that you have cloned this repository to whatever environment you are using.
+3. Navigate to the `mywork/lab3` directory. This is where you will keep your code for the lab and the URL for this folder in this repo is what you will submit to canvas for grading.
+
+<br>
+
+## Script 1. Use Python to fetch remote data
 
 For this script you will need Python3 installed on your local system.
 
 Python3 should be available in your path. Use `which python3` to find the path. That path should be something like `/usr/bin/python3`
 
-You will also need to install the `requests` library for Python. To do this, run this command:
+You will also need to install the `requests` library for Python. To do this, run one of these commands:
 
 ```
 python3 -m pip install requests
-
-# or
-
+```
+or
+```
 pip install requests
 ```
 
@@ -26,10 +35,10 @@ pip install requests
     which python3
     ```
 
-3. For this script you will need to set an environment variable in your `bash` shell. Edit your `~/.bashrc` file and export a new `var` named `GITHUB_USER`. Give it the value of your own GitHub username.
+3. For this script you will need to set an environment variable in your `bash` shell. Edit your `~/.bashrc` file (Windows/bash environment) or `~/.zshrc` file (Mac/zsh environment) and export a new `var` named `GITHUB_USER`. Give it the value of your own GitHub username (use yours, not mine).
 
     ```
-    export GITHUB_USER="nmagee"
+    export GITHUB_USER="austin-t-rivera"
     ```
 
     After you add this line, run the command `source ~/.bashrc` to load this new value into your environment.
@@ -78,11 +87,12 @@ pip install requests
     Much more information on the [**GitHub API is available**](https://docs.github.com/en/rest?apiVersion=2022-11-28). 
 
 7. Use `chmod` to make your script executable, and run it. Make sure no errors occur.
-   
 
-## Python3 and `env` variables
+<br>
 
-For this script you will need Python3 installed on your local system. See [these directions](https://realpython.com/installing-python/) to get started. If you cannot get Python3 installed, use a code block of [Google Colab](https://colab.research.google.com) for this assignment then save your code to a local file and submit via GitHub.
+## Script 2: Python3 and `env` variables
+
+For this script you will need Python3 installed on your local system. See [these directions](https://realpython.com/installing-python/) to get started. If you cannot get Python3 installed, you may use Google Cloud Shell or you may use a code block of [Google Colab](https://colab.research.google.com) then save your code to a local file and submit via GitHub.
 
 Python3 should be available in your path. Use `which python3` to find the path. It should be something like `/usr/bin/python3`
 
@@ -109,9 +119,9 @@ os.environ["UVA_FIRST_YEAR"] = "True"
 
 Here are some examples of `input` in Python:
 ```python3
-FAV_FLAVOR = input('What is your favorite flavor? ')
-AGE = input('What is your age? ')
-UVA_FIRST_YEAR = input('Are you a first-year student at UVA?' )
+FAV_FLAVOR = input('What is your favorite flavor?')
+AGE = input('What is your age?')
+UVA_FIRST_YEAR = input('Are you a first-year student at UVA?')
 ```
 
 Remember that all of these prompts will be stored as strings.
@@ -141,7 +151,4 @@ print(os.getenv("ZIP"))
 
 ## Submit your work
 
-You created three separate scripts for this lab. Add/commit/push them to your fork of the DS2022 repository, in a folder `my-work/lab3`. Submit the GitHub URL to that directory within Canvas.
-
-
-This lab has you create two scripts. They should be put into a folder `ds2002-course/mywork/lab3` within your fork of the course repository, added, committed, and pushed. Then send the two (2) URLs - one for each file - in the text box within Canvas.
+You created two separate Python scripts for this lab. Add/commit/push them to your fork of the `DS-2022-Spr25` repository, in the folder `mywork/lab3`. Submit the GitHub URL to that directory within Canvas.

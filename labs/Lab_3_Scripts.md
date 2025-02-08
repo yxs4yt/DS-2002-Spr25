@@ -147,6 +147,8 @@ print(ZIP_ENV)
 print(os.getenv("ZIP"))
 ```
 
+<br>
+
 7. Your script when run should prompt for three values, store three values as `env` variables, and print out those three `env` variables without errors.
 
 ## Submit your work

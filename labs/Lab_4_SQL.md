@@ -193,7 +193,7 @@ INSERT INTO `owners` (`owner`, `name`, `joined`, `training`) VALUES ('jaj', 'Jim
 
 Complete one entry per owner, so that you have a completed `owners` table. Be sure some of your researchers have completed the training and some have not:
 ```
-mysql> select * from owners;
+select * from owners;
 +-------+-----------------+------------+----------+
 | owner | name            | joined     | training |
 +-------+-----------------+------------+----------+

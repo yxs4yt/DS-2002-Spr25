@@ -21,7 +21,7 @@ NOTE: You may use any IDE that supports SQLite if you have a preference.
   - You should see your newly created and completely empty database on the left-hand side in DBeaver under Database Navigator.
   - Click into your database on the left-hand navigation and then the SQL tab at the top of the page. This will give you a text field to insert SQL queries.
 
-## Part 1 - Creating Tables From Scratch and Querying Them
+## Part 1 - Creating Tables From Scratch and Querying Them (2 out of 5 Points)
 
 ## Create a new table
 
@@ -69,7 +69,7 @@ For purposes of inserting mock data, here are some suggestions:
 
 ## Insert data
 
-Using either the `mysql` CLI or the PhpMyAdmin user interface (click the INSERT tab), add data to your new table. Here is a sample entry you can use:
+Using the SQL Editor, add data to your new table. Here is a sample entry you can use:
 
 ```
 INSERT INTO `tracking` (`id`, `file`, `owner`, `updated`, `step`, `source`) VALUES (NULL, 'BkJrynaRf4gu.csv', 'mst3k', '2024-02-08', '4', 'NSF')
@@ -94,10 +94,10 @@ Here's an example of data:
 | 10 | zz3c4d5e6f7g.csv       | jaj   | 2024-03-04 |    3 | NSF    |
 | 11 | qq3c4d5e6f7g.csv       | jaj   | 2024-03-14 |    2 | NSF    |
 | 12 | wrelktjyl3k45j.csv     | jaj   | 2024-01-12 |    5 | NSF    |
-| 13 | 634yl3k45j.csv         | nem2p | 2024-01-12 |    5 | NSF    |
-| 14 | th634bbyla3k4.csv      | nem2p | 2024-01-12 |    4 | USGS   |
-| 15 | 1824absdfs.csv         | nem2p | 2022-09-13 |    6 | NIH    |
-| 16 | 23942fweorif.csv       | nem2p | 2022-09-13 |    6 | NIH    |
+| 13 | 634yl3k45j.csv         | atr8ec| 2024-01-12 |    5 | NSF    |
+| 14 | th634bbyla3k4.csv      | atr8ec| 2024-01-12 |    4 | USGS   |
+| 15 | 1824absdfs.csv         | atr8ec| 2024-09-13 |    6 | NIH    |
+| 16 | 23942fweorif.csv       | atr8ec| 2024-09-13 |    6 | NIH    |
 | 17 | alfkwerljweflksd.csv   | nem2p | 2022-09-13 |    5 | NIH    |
 | 18 | 41bafa.csv             | nem2p | 2021-09-11 |    5 | NSF    |
 | 19 | 1j9flwer.csv           | mst3k | 2021-09-11 |    5 | NSF    |
@@ -152,20 +152,24 @@ Take some time to practice more SELECT, INSERT, DELETE, and UPDATE queries.
 Since you are using unique user IDs for the `owner` field, you already have a key you can use to relate to a second table. Create a new table named `owners` using this query:
 
 ```
-CREATE TABLE `owners` (`owner` VARCHAR(8) NULL , `name` VARCHAR(30) NULL , `joined` DATE NULL , `training` BOOLEAN NULL ) ENGINE = InnoDB;
+CREATE TABLE owners (
+    owner VARCHAR(8) NULL,
+    name VARCHAR(30) NULL,
+    joined DATE NULL,
+    training INTEGER NULL  -- BOOLEAN type is not directly supported in SQLite
+);
 ```
-Run this command and then `describe` the new table:
+Run this command and then `PRAGMA table_info(owners);` to see the schema of the new table:
 
 ```
-mysql> describe owners;
-+----------+-------------+------+-----+---------+-------+
-| Field    | Type        | Null | Key | Default | Extra |
-+----------+-------------+------+-----+---------+-------+
-| owner    | varchar(8)  | YES  |     | NULL    |       |
-| name     | varchar(30) | YES  |     | NULL    |       |
-| joined   | date        | YES  |     | NULL    |       |
-| training | tinyint(1)  | YES  |     | NULL    |       |
-+----------+-------------+------+-----+---------+-------+
++----------+-------------+---------+------------+-----+
+| name     | type        | nonnull | dflt_value | pk  |
++----------+-------------+---------+------------+-----+
+| owner    | VARCHAR(8)  | YES     | NULL       | 0   |
+| name     | VARCHAR(30) | YES     | NULL       | 0   |
+| joined   | DATE        | YES     | NULL       | 0   |
+| training | INTEGER     | YES     | NULL       | 0   |
++----------+-------------+---------+------------+-----+
 ```
 
 Here are the fields:
@@ -196,6 +200,7 @@ mysql> select * from owners;
 | nem2p | Neal Magee      | 2016-12-01 |        1 |
 | jaj   | Jim Jokl        | 1991-12-01 |        1 |
 | mst3k | Mystery Science | 2021-04-13 |        0 |
+| atr8ec| Austin Rivera   | 2023-01-18 |        0 |
 +-------+-----------------+------------+----------+
 ```
 
@@ -208,9 +213,9 @@ To get a full `JOIN` of both tables joined, this is a first step:
 SELECT * FROM tracking JOIN owners ON tracking.owner=owners.owner;
 ```
 
-But the results are repetitive with regard to the `owners` data on the right-hand side:
+But the results are repetitive with regard to the `owners` data on the right-hand side (results are not exactly what you will see, do not worry):
 ```
-mysql> SELECT * FROM tracking JOIN owners ON tracking.owner=owners.owner;
+sqlite> SELECT * FROM tracking JOIN owners ON tracking.owner=owners.owner;
 +----+------------------------+-------+------------+------+--------+-------+-----------------+------------+----------+
 | id | file                   | owner | updated    | step | source | owner | name            | joined     | training |
 +----+------------------------+-------+------------+------+--------+-------+-----------------+------------+----------+
@@ -250,5 +255,9 @@ Now write a query that lists the `file`, `step`, and owner `name` for researcher
 Run the query to test or debug your results.
 
 ## Submit your work
+Create a GitHub Gist and add your SQL query under a section called Part 1.
 
-Submit your SQL query in the text field within Canvas.
+<br>
+
+## Part 2 - Using an Existing Database to Explore Movie Data (3 out of 5 Points)
+

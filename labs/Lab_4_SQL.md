@@ -1,6 +1,15 @@
 # Lab 4 - Structured Query Language (SQL)
 - This lab will take you through two (2) exercises, will be more involved than the last couple of labs, but will give you a wide range and wealth of experience using SQL.
+  - Part 1 will consist of guiding you through making your own table and then querying that table to get some results.
+  - Part 2 will have you ingest a database and explore it, testing your SQL skills with increasing complexity.
 - The Relational Database Management System (RDBMS) we will be using is SQLite. As the name suggests, SQLite is a lightweight RDBMS that is incredibly useful for working with local data. So we have talked about RDBMSs like MySQL, Oracle, PostgreSQL, etc., which are server-based. To simply things and get you exposure to SQL and querying, we will not worry about setting up and configuring the appropriate configurations that are needed for a server-based RDBMS.
+
+## SUBMITTING WORK
+  - You will create one (1) GitHub Gist.
+  - You will add a comment to section off "Part 1"
+  - You will copy and paste the one (1) SQL Query you will write on your own at the end of Part 1.
+  - Comment another section called "Part 2" and then number 1-15 for here will be where you copy and paste your SQL queries or answers to the question.
+    - For some problems, I will just want the SQL query, for some I will want the result from running the query. Make sure you read carefully, so you know which to put.
 
 
 ## Setting up an IDE (DBeaver)
@@ -28,9 +37,6 @@ NOTE: You may use any IDE that supports SQLite if you have a preference.
 You will create a simple database to track inventory and progress on processing datasets. Imagine there are 100 data files that must go through a multi-stage process and this DB is designed to keep a clear inventory of each file and where each one stands in the process.
 
 1. Having clicked on your new DB, now click on the "SQL" tool dropdown and click "Open SQL Script"
-```
-use atr8ec;
-```
 2. Then, in the editor window, create the table:
 ```
 CREATE TABLE `tracking` (
@@ -254,10 +260,68 @@ Now write a query that lists the `file`, `step`, and owner `name` for researcher
 
 Run the query to test or debug your results.
 
-## Submit your work
-Create a GitHub Gist and add your SQL query under a section called Part 1.
-
 <br>
 
 ## Part 2 - Using an Existing Database to Explore Movie Data (3 out of 5 Points)
+1. Download the DB from the Lab 4 assignment page on Canvas.
+2. Save the data to a location on your local directory that makes sense, like the place where you put the DB from Part 1. Please do not just save it to your downloads... I beg you!
+3. Create a New Connection:
+  - Open DBeaver.
+  - Click "New Connection."
+  - Choose SQLite.
+  - Connect by: Host
+  - Click "Open ..."
+    - Navigate to the path in your local directory where the DB file lives and select it.
+    - Should be called: `2024_imdb_movies`
+  - Click "Open"
+  - Click "Finish"
+  - You should see your newly created DB that I cureated for you all on the left-hand side in DBeaver under Database Navigator.
 
+## About the Data
+In this part of the lab, you'll be using SQL to explore a simplified version of the Internet Movie Database (IMDB).  Your goal is to write queries to answer the questions below.  Don't be afraid to experiment, and remember to use the DBeaver SQL editor to test your queries.
+
+#### Database Schema:
+- You'll be working with four tables:
+  - `crew`: Information about who worked on each title (directors, writers, etc.).
+  - `people`: Details about the people involved in movies (actors, directors, etc.).
+  - `ratings`: Ratings and vote counts for each title.
+  - `titles`: Information about the movies themselves.
+ 
+#### Important Tip:
+Before you start, take a few minutes to familiarize yourself with the schema.  Understanding the relationships between the tables is key to writing effective queries.
+
+#### Getting Unstuck:
+- **Review the schema**: Make sure you understand which tables contain the information you need.
+- **Start simple**: Break down complex questions into smaller steps.
+- **Use DBeaver's help**: DBeaver has documentation and code completion features that can be helpful.
+- **Experiment**: Try different queries and see what results you get. Don't be afraid to make mistakes – that's how you learn!
+
+<br>
+
+## Questions
+Below you will find 15 questions that you will need to answer about this database, where you will add either the SQL query or the result into your Gist for submission:
+
+#### Basic Queries (5 Questions) (1 of 5 points)
+1. `**QUERY**` List all movie titles. (**Hint**: Which table contains the movie titles?)
+3. `**QUERY**` Find the names of all people in the database: (**Hint**: Which table stores people's names?)
+4. `**RESULT**` How many movies were released on or after the July 1, 2024. (**Hint**: Which table has the release year? How do you filter by date?)
+5. `**RESULT**` What movie has the highest rating: (**Hint**: Which table stores ratings? How do you find the maximum value?)
+6. `**QUERY**` List the names of all directors: (**Hint**: The crew table holds category information. How do you filter for directors?)
+
+#### Intermediate Queries (5 Questions) (1 of 5 points)
+6. `**QUERY**` List the titles and ratings of all movies. (**Hint**: You'll need to combine data from two tables. What kind of join is appropriate?)
+7. `**QUERY**` Find the names of all actors who were born before 1980. (**Hint**: You'll need to join the people and crew tables and filter by birth year and category.)
+8. `**QUERY**` List the titles of all movies with a rating greater than 8. (**Hint**: Combine data from the titles and ratings tables.)
+9. `**RESULT**` Find the average rating of all movies. (**Hint**: Use an aggregate function.)
+10. `**QUERY**` List the names of all people who have worked as both directors and actors. (**Hint**: This requires checking the crew table for both categories for the same person. You might need to use subqueries or self-joins.)
+
+#### Advanced Queries (5 Questions) (1 of 5 points)
+11. `**RESULT**` Name the movie with the most votes: (**Hint**: Look in the ratings table.)
+12. `**QUERY**` List the names of all actors who have appeared in more than 5 movies: (**Hint**: Use GROUP BY and HAVING.)
+13. `**RESULT**` Name the titles of the top 3 highest-rated movies. (**Hint**: Use ORDER BY and LIMIT.)
+14. `**RESULT**` For each of **your** three most favorite genres, find the number of movies in that genre. (**Hint**: The titles table has a genres column. GROUP BY will be useful. You may also want to look at all of the genres to pick your three favorite.)
+15. `**QUERY**` Find the names of all people who have worked on a movie with a rating greater than 9. (**Hint**: This requires joining multiple tables.)
+
+
+
+# Submit the URL to your Gist in Canvas.

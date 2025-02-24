@@ -30,7 +30,7 @@ NOTE: You may use any IDE that supports SQLite if you have a preference.
   - You should see your newly created and completely empty database on the left-hand side in DBeaver under Database Navigator.
   - Click into your database on the left-hand navigation and then the SQL tab at the top of the page. This will give you a text field to insert SQL queries.
 
-## Part 1 - Creating Tables From Scratch and Querying Them (2 out of 5 Points)
+# Part 1 - Creating Tables From Scratch and Querying Them (2 out of 5 Points)
 
 ## Create a new table
 
@@ -262,7 +262,7 @@ Run the query to test or debug your results.
 
 <br>
 
-## Part 2 - Using an Existing Database to Explore Movie Data (3 out of 5 Points)
+# Part 2 - Using an Existing Database to Explore Movie Data (3 out of 5 Points)
 1. Download the DB from the Lab 4 assignment page on Canvas.
 2. Save the data to a location on your local directory that makes sense, like the place where you put the DB from Part 1. Please do not just save it to your downloads... I beg you!
 3. Create a New Connection:
@@ -322,6 +322,6 @@ Below you will find 15 questions that you will need to answer about this databas
 14. `**RESULT**` For each of **your** three most favorite genres, find the number of movies in that genre. (**Hint**: The titles table has a genres column. GROUP BY will be useful. You may also want to look at all of the genres to pick your three favorite.)
 15. `**QUERY**` Find the names of all people who have worked on a movie with a rating greater than 9. (**Hint**: This requires joining multiple tables.)
 
-
+<br>
 
 # Submit the URL to your Gist in Canvas.

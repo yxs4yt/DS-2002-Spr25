@@ -29,21 +29,27 @@ Write a `bash` script that does the following:
 1. Fetches the METAR data from the URL above.
 2. Parses the data and pulls out the `receiptTime` value
 3. Outputs only the first six values to the screen.
+4. Parses the data and pulls out each of the temperature.
+5. Outputs the average temperature across the 12 hours.
+6. Parses whether or not the `cloud` value is "CLR" meaning clear or something else.
+7. Outputs a boolean response for if more than half of the last 12 ours where cloudy (i.e. not CLR).
 
-Your script should output something like this with no more than 6 lines:
+Your script should output something like this with no more than 6 lines of date/times, the average temperature, and whether or not the last 12 hours were mostly cloudy:
 
 ```
-"2024-04-09 13:56:20"
-"2024-04-09 12:56:14"
-"2024-04-09 11:56:12"
-"2024-04-09 10:56:20"
-"2024-04-09 09:56:23"
-"2024-04-09 08:56:11"
+"2025-03-03 03:00:14"
+"2025-03-03 01:58:19"
+"2025-03-03 01:02:06"
+"2025-03-03 00:00:07"
+"2025-03-02 22:58:21"
+"2025-03-02 21:58:35"
+"Average Temperature: 9.5"
+"Mostly Cloudy: true"
 ```
 
 ## 2. Parse JSON with Python
 
-1. Review the file [`data/schacon.repos.json`](data/schacon.repos.json) and notice it lists the first 30 repositories owned by Scott Chacon in GitHub. Each entry has around 100 data points.
+1. Review the file [data/schacon.repos.json](https://github.com/austin-t-rivera/DS2002-json-practice/blob/0fc909adffe8b13aea33a59af90c38f978bca61d/data/schacon.repos.json) and notice it lists the first 30 repositories owned by Scott Chacon in GitHub. Each entry has around 100 data points.
 
 2. Recall that reading a file into Python looks something like this (in read-only mode):
 

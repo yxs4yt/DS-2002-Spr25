@@ -1,12 +1,9 @@
 # Lab 6 - NoSQL Databases
 Welcome to Lab 6 of the DS-2002 course! This lab will take you through the fundamentals of the primary types of NoSQL Databases we have briefly covered in class:
 - **Document**: Use MongoDB to explore Movie data to answer a few questions and practice querying.
-- **Key-Value**: 
-- **Wide-Column**
 - **Time-Series**
-- **Ledger**
 - **Graph**: Complete the Neo4j fundamentals certification and add it to your LinkedIn!
-- **Vector**
+- **Vector**: Follow along some code where we build a basic Patient Disease Diagnosis tool from scratch!
 
 ## Part 0. Setting Up and What to Submit
 **Create**:
@@ -18,20 +15,19 @@ Welcome to Lab 6 of the DS-2002 course! This lab will take you through the funda
 
 ```
 Part 1 (Documents - MongoDB):
-  - Query 1: ``
+  - Query 1: 
   - Answer 1: 
-  - Query 2: ``
+  - Query 2: 
   - Answer 2: 
-  - Query 3: ``
+  - Query 3: 
   - Answer 3:
 Part 2 (Key-Value): 
 Part 3 (Wide-Column):
 Part 4 (Time-Series):
 Part 5 (Ledger):
 Part 6 (Graphs - Neo4j):
-  - LinkedIn Profile URL: https://www.linkedin.com/in/atrivera/
-  - ScreenShot of Completion: Neo4j Fundamentals Certification
-Part 7 (Vector)
+  - LinkedIn Profile URL: <paste url here>
+Part 7 (Vector - From Scratch)
 ```
 
 <br>
@@ -92,3 +88,32 @@ Part 1 (Documents - MongoDB):
 1. An award winning R-rated Sci-Fi movie starring Arnold Schwarzenegger consisting of a "hunt" in the full plot description that IMDB (>6) found favorable, and MetaCritic hated (<35).
 2. A G-rated movie, exactly 100 minutes long that came out either after 1980 or before 1940 with at least one "dog" being part of the full plotline.
 3. The theaterId of the most northern theater in Charlottesville.
+
+<br>
+
+## Part 4. Vector Databases
+1. Download the `Lab_6_Vector_Database.ipynb` file from the Lab 6 Assignment page on Canvas.
+2. Go to [Google Collab](https://colab.research.google.com/) and sign in.
+3. Open the notebook you just downloaded.
+4. Read through and run each cell in the notebook.
+5. Answer the questions at the bottom.
+6. Add your answers to your Gist file, like so:
+```
+Part 4 (Vector - From Scratch)
+
+1. How many patients are diagnosed with:
+  - Flu: <your answer>
+  - Common Cold: <your answer>
+  - Pneumonia: <your answer>
+  - Migraine: <your answer>
+  - Asthma: <your answer>
+
+2. How many patients went undiagnosed? <your answer>
+
+3. <your answer>
+
+4a. <your answer>
+4b. <your answer>
+
+5. <your answer>
+```

@@ -37,14 +37,58 @@ Part 7 (Vector)
 <br>
 
 ## Part 1. Document Databases using MongoDB:
-#### MongoDB Atlas Free Tier:
-- MongoDB Atlas offers a free tier that allows you to create a small cluster. While it's a cloud-hosted service, it's very easy to set up.   
+### MongoDB Atlas Free Tier:
+- MongoDB Atlas offers a free tier that allows you to create a small cluster. While it's a cloud-hosted service, it's very easy to set up.
 - You can find many public datasets that can be easily imported into your free cluster.
-- MongoDB also provides interactive tutorials and documentation with sample data.   
-- This option is a very good choice, as it allows real world experience with a industry standard database.
+- MongoDB also provides interactive tutorials and documentation with sample data.
 - If you have not already done so, please watch [this video](https://www.youtube.com/watch?v=9DbZ2ii01ew&ab_channel=NealMagee) to set up your account.
-MongoDB Playground:
-This is a browser-based interactive shell where you can execute MongoDB queries and commands without setting up a local or cloud instance.   
-While it might not always have extensive preloaded datasets, it allows for quick experimentation with commands and queries.
-This is a great option for testing small queries and commands.
 
+### Quick Help for MongoDB:
+1. Open your free cluster, navigate to your `sample_mflix` database, and see your six (6) collections, each of which containing many documents:
+  - comments, embedded_movies, movies, sessions, theaters, users
+2. Click on your `movies` collection and use `Find` to query your movies documents
+3. Open the [query documentation](https://www.mongodb.com/docs/manual/tutorial/query-documents/) for help for how to query using MongoDB.
+  - (NOTE: The documentation allows you to select a language. By default it will use `Node.js`, switch this to `Compass`.)
+4. Copy and paste this query and hit `Apply`:
+```
+{
+"year": { $gt: 1990 },
+"cast": "Tom Hanks",
+"genres": "Comedy",
+"imdb.rating": { $gt: 7.5 },
+"metacritic": {$gt: 80}
+}
+```
+  - This should return three documents which consist of the first three Toy Story Movies.
+  - With this query, we are searching for any movies that meets these criteria, i.e. All Tom Hanks comedies made after 1990 with critical acclaim on both IMDB (>7.5) and MetaCritic (>80).
+  - You may be wondering, "Hey, there were four Toy Stories! Does this mean there is no Toy Story 4 in this collection or did it not do as well, critically?"
+5. Try running this:
+```
+{
+"year": { $gt: 1990 },
+"cast": "Tom Hanks",
+"genres": "Comedy",
+"title": { $regex: '^Toy' }
+}
+```
+  - Here we introduce the use of `regex` or Regular Expression, to enhance our search to find all of the Comedic "Toy" movies Tom Hanks has been in since 1990.
+  - There are many other ways we could look to prove this, maybe even by getting rid of the genre or year, but we can rest easy knowing that Toy Story 4 is simply not in this dataset.
+
+### Instructions for MongoDB
+Please use my natural language sentences to create a Compass query to search within the sample_mflix database. You will need to paste your query as well as provide the answer to the thing I am trying to find.
+0. **FOR EXAMPLE**: If I were asking for "All Tom Hanks comedies made after 1990 with critical acclaim on both IMDB (>7.5) and MetaCritic (>80).", I would expect to see the following in your Gist (I will be lenient on formatting, but try to get it close, at least so it is easy to read.):
+```
+Part 1 (Documents - MongoDB):
+  - Query 0:
+            {
+            "year": { $gt: 1990 },
+            "cast": "Tom Hanks",
+            "genres": "Comedy",
+            "imdb.rating": { $gt: 7.5 },
+            "metacritic": {$gt: 80}
+            }
+  - Answer 0: Toy Story, Toy Story 2, Toy Story 3
+```
+1. An award winning R-rated Sci-Fi movie starring Arnold Schwarzenegger consisting of a "hunt" in the full plot description that IMDB (>6) found favorable, and MetaCritic hated (<35).
+2. A G-rated movie, exactly 100 minutes long that came out either after 1980 or before 1940 with at least one "dog" being part of the full plotline.
+3. The theaterId of the most northern theater in Charlottesville.

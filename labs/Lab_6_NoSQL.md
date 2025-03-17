@@ -5,6 +5,12 @@ Welcome to Lab 6 of the DS-2002 course! This lab will take you through the funda
 - **Graph**: Complete the Neo4j fundamentals certification and add it to your LinkedIn!
 - **Vector**: Follow along some code where we build a basic Patient Disease Diagnosis tool from scratch!
 
+<br>
+
+------------------------------------------------------------------------------------------------------------------------
+
+<br>
+
 ## Part 0. Setting Up and What to Submit
 **Create**:
 - Create a [LinkedIn](https://www.linkedin.com/) profile if you have not already.
@@ -15,20 +21,24 @@ Welcome to Lab 6 of the DS-2002 course! This lab will take you through the funda
 
 ```
 Part 1 (Documents - MongoDB):
-  - Query 1: 
-  - Answer 1: 
-  - Query 2: 
-  - Answer 2: 
-  - Query 3: 
-  - Answer 3:
-Part 2 (Key-Value): 
-Part 3 (Wide-Column):
-Part 4 (Time-Series):
-Part 5 (Ledger):
-Part 6 (Graphs - Neo4j):
-  - LinkedIn Profile URL: <paste url here>
-Part 7 (Vector - From Scratch)
+<You will copy and paste additional formatting here as dictated by the section below.>
+
+------------------------------------------
+Part 2 (Time-Series):
+<You will copy and paste additional formatting here as dictated by the section below.>
+
+------------------------------------------
+Part 3 (Graphs - Neo4j):
+<You will copy and paste additional formatting here as dictated by the section below.>
+
+------------------------------------------
+Part 4 (Vector - From Scratch)
+<You will copy and paste additional formatting here as dictated by the section below.>
 ```
+
+<br>
+
+------------------------------------------------------------------------------------------------------------------------
 
 <br>
 
@@ -89,9 +99,51 @@ Part 1 (Documents - MongoDB):
 2. A G-rated movie, exactly 100 minutes long that came out either after 1980 or before 1940 with at least one "dog" being part of the full plotline.
 3. The theaterId of the most northern theater in Charlottesville.
 
+Copy the formatting below and paste into your Gist:
+```
+  - Query 1: 
+  - Answer 1: 
+  - Query 2: 
+  - Answer 2: 
+  - Query 3: 
+  - Answer 3:
+```
+
 <br>
 
-## Part 4. Vector Databases
+------------------------------------------------------------------------------------------------------------------------
+
+<br>
+
+## Part 2. Time-Series Databases using Something
+
+<br>
+
+------------------------------------------------------------------------------------------------------------------------
+
+<br>
+
+## Part 3. Graph Databases using neoj4
+1. Go to the [Neo4j GraphAcademy](https://graphacademy.neo4j.com/courses/neo4j-fundamentals/) and enroll in the the Neo4j Fundamentals course.
+2. You can make a free account using your UVA email.
+3. Complete the course (Estimated 1 hour):
+   a. 9 lessons
+   b. 5 videos
+   c. 8 "quizzes"
+   d. Ability to use their sandbox
+4. Upon completion, add the certification to your LinkedIn profile page. There will be a button that will take you to login and do so.
+5. Add the URL to your LinkedIn to your Gist like so:
+```
+LinkedIn URL: <your LinkedIn profile page URL>
+```
+
+<br>
+
+------------------------------------------------------------------------------------------------------------------------
+
+<br>
+
+## Part 4. Vector Databases from Scratch
 1. Download the `Lab_6_Vector_Database.ipynb` file from the Lab 6 Assignment page on Canvas.
 2. Go to [Google Collab](https://colab.research.google.com/) and sign in.
 3. Open the notebook you just downloaded.

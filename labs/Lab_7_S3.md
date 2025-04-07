@@ -1,16 +1,14 @@
 # Lab 7: S3 Storage
 
-Follow all the steps below for practice working with the S3 service in Amazon Web Services. Among several other tasks you will write two scripts for this lab. If you have not already, create a repository in your GitHub account named `ds2002-XXXX` where you replace `XXXX` with your UVA computing ID. Create a subdirectory `labs/` and within that a subdirectory named `lab7`. Within that directory commit the two scripts (as two separate files) you write for this lab. Paste the URL to your GitHub repository in Canvas for grading.
+Follow all the steps below for practice working with the S3 service in Amazon Web Services. Among several other tasks you will write two scripts for this lab. If you have not already, [update your fork of DS-2002-Spr25](https://github.com/austin-t-rivera/DS-2002-Spr25/blob/lab_7_s3/README.md).
+
+Within the `mywork` directory, create a directory called `Lab_7`, this is where you will be putting the scripts that you will write. Within that directory commit the two scripts (as two separate files) you write for this lab. Paste the URL to your GitHub repository in Canvas for grading.
 
 This lab requires that you have a working Python3 environment and both the AWS CLI tool (with access keys configured) and Python3 / `boto3` installed. If you are using the AWS Academy Learner Lab, start the Learner Lab and then copy your AWS credentials into `~/.aws/credentials` on your local machine. Remember these credentials expire after 4 hours.
 
 Installations:
-- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) - can be installed as a binary installer, or using `pip`:
-  
-    ```bash
-    python3 -m pip install awscli
-    ```
-    
+- Follow this guide to download and install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html):
+ 
 - `boto3` - is a simple `pip` command in your terminal:
   
     ```bash
@@ -52,10 +50,10 @@ For example, this URL is to a publicly-accessible file within a publicly-accessi
     aws s3 ls
     ```
 
-2. Create a new bucket using the `mb` S3 subcommand. Add your computing ID to the name of the bucket, i.e. `ds2002-mst3k` and so on. Note the use of the `s3://` protocol before the bucket name.
+2. Create a new bucket using the `mb` S3 subcommand. Add your computing ID to the name of the bucket, i.e. `ds2002-atr8ec` and so on. Note the use of the `s3://` protocol before the bucket name.
 
     ```
-    aws s3 mb s3://ds2002-mst3k
+    aws s3 mb s3://ds2002-atr8ec
     ```
 
 3. Grab an image file. Using the `curl` command below you can retrieve any image from the Internet you want to use for this lab. Once you have the URL copied for the image, use this command syntax:
@@ -76,17 +74,17 @@ For example, this URL is to a publicly-accessible file within a publicly-accessi
     For example, to upload the google logo:
 
     ```
-    aws s3 cp google_logo.png s3://ds2002-mst3k/
+    aws s3 cp google_logo.png s3://ds2002-atr8ec/
     ```
 
 5. Go ahead and upload your file. List the contents of your bucket to verify it is there. Notice it is the same `ls` command, but specifying the bucket to list the contents of:
 
     ```
-    aws s3 ls s3://ds2002-mst3k/
+    aws s3 ls s3://ds2002-atr8ec/
     ```
     which should return something like:
     ```
-    $ aws s3 ls s3://ds2002-mst3k/
+    $ aws s3 ls s3://ds2002-atr8ec/
     2024-02-19 08:13:49     309510 vuelta.jpg
     ```
 
@@ -94,7 +92,7 @@ For example, this URL is to a publicly-accessible file within a publicly-accessi
     ```
     # https://s3.amazonaws.com/ + BUCKET_NAME + / FILE_PATH
     
-    https://s3.amazonaws.com/ds2002-mst3k/vuelta.jpg
+    https://s3.amazonaws.com/ds2002-atr8ec/vuelta.jpg
     ```
     Test that URL using your web browser. What do you see?
 
@@ -102,7 +100,7 @@ For example, this URL is to a publicly-accessible file within a publicly-accessi
 
     The syntax for the command is:
     ```
-    aws s3 presign --expires-in 30 s3://ds2002-mst3k/vuelta.jpg
+    aws s3 presign --expires-in 30 s3://ds2002-atr8ec/vuelta.jpg
 
     # The --expires-in flag is how many seconds the file should be public.
     # The s3:// is the BUCKET+FILE path to your specific file.
@@ -111,7 +109,7 @@ For example, this URL is to a publicly-accessible file within a publicly-accessi
     Once you issue this command, it will return a long URL with signature:
     
     ```
-    https://s3.amazonaws.com/ds2002-mst3k/pdfs/json-overview.pdf?AWSAccessKeyId=AKIAJLBYZFLFQQT256OQ&Signature=cjcY98KLjZ6CXbTnaZ9Srt8MQVM%3D&Expires=1708376373
+    https://s3.amazonaws.com/ds2002-atr8ec/pdfs/json-overview.pdf?AWSAccessKeyId=AKIAJLBYZFLFQQT256OQ&Signature=cjcY98KLjZ6CXbTnaZ9Srt8MQVM%3D&Expires=1708376373
     ```
     
     Open that link in a browser - you should be able to see your file.
@@ -149,13 +147,13 @@ For example, this URL is to a publicly-accessible file within a publicly-accessi
 
     For example:
     ```
-    aws s3 cp --acl public-read vuelta.jpg s3://ds2002-mst3k/
+    aws s3 cp --acl public-read vuelta.jpg s3://ds2002-atr8ec/
     ```
 
 11. Test access
 
     Using the `bucket/file` path structure, construct the URL for your file like this: 
-    [`https://s3.amazonaws.com/ds2002-mst3k/vuelta.jpg`](https://s3.amazonaws.com/ds2002-mst3k/vuelta.jpg)
+    [`https://s3.amazonaws.com/ds2002-atr8ec/vuelta.jpg`](https://s3.amazonaws.com/ds2002-atr8ec/vuelta.jpg)
 
 12. Delete a file in your bucket. Using the AWS CLI, upload another image file to the bucket. List the bucket contents to confirm it has been uploaded. And, finallly, delete the file using this syntax:
 
@@ -164,11 +162,11 @@ For example, this URL is to a publicly-accessible file within a publicly-accessi
     ```
     For example
     ```
-    aws s3 rm s3://ds2002-mst3k/vuelta.jpg
+    aws s3 rm s3://ds2002-atr8ec/vuelta.jpg
     ```
     And confirm the file has been deleted:
     ```
-    aws s3 ls s3://ds2002-mst3k/
+    aws s3 ls s3://ds2002-atr8ec/
     ```
 
 13. To empty a bucket completely, a `--recursive` option is available:
@@ -251,7 +249,7 @@ The following tasks assume you are able to import `boto3` successfully.
 4. To upload a file to your bucket:
 
     ```
-    bucket = 'ds2002-mst3k'
+    bucket = 'ds2002-atr8ec'
     local_file = 'project/vuelta.jpg'
 
     resp = s3.put_object(
@@ -304,7 +302,7 @@ response = s3.generate_presigned_url(
 )
 ```
 
-### BONUS: Turn an S3 Bucket into a Website
+### OPTIONAL: Turn an S3 Bucket into a Website
 
 As a web-enabled storage service, S3 buckets can also serve web content including entire websites. Look at https://www.rc.virginia.edu/ as an example. To configure a bucket into a website follow these steps:
 
@@ -331,7 +329,7 @@ As a web-enabled storage service, S3 buckets can also serve web content includin
 
 7. Save your changes to the policy. Switch to the "Properties" tab for your bucket and scroll to the bottom.
 8. Edit the Static Website Hosting section. For the index document enter `index.html` and for the error document enter `error.html`
-9. Save your changes. The page will refresh and you will see a website URL appear, something like http://ds2002-mst3k.s3-website-us-east-1.amazonaws.com/
+9. Save your changes. The page will refresh and you will see a website URL appear, something like http://ds2002-atr8ec.s3-website-us-east-1.amazonaws.com/
 10. To test your site, upload a sample HTML file named `index.html` to your bucket. Here is such a file: https://s3.amazonaws.com/ds2002-resources/labs/lab4/index.html
 
     ```
@@ -342,6 +340,6 @@ As a web-enabled storage service, S3 buckets can also serve web content includin
 
 ## Submit your work
 
-Your scripts should be put into a folder `labs/lab4` within your repository -- added, committed, and pushed.
+Your scripts should be put into a folder `Lab_7` within your repository -- added, committed, and pushed.
 
 Submit the GitHub URL to that folder into Canvas for lab completion credit.

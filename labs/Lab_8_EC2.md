@@ -1,5 +1,16 @@
 # Lab 8: Bootstrapping an EC2 Instance
 
+## Basic Set-Up
+
+Watch the lecture below, read through the material, and follow the directions for practice in bootstrapping with the EC2 service in Amazon Web Services. For this lab, you will be writing one script.
+
+If you have not already, [update your fork of DS-2002-Spr25](https://github.com/austin-t-rivera/DS-2002-Spr25/blob/lab_7_s3/README.md).
+
+Within the `mywork` directory, create a directory called `Lab_8`, this is where you will add/commit/push the script you write for this lab. Paste the URL to your script in Canvas for grading.
+
+<br>
+
+## What is Bootstrapping? Explanation and Video
 Bootstrapping is the process of bringing a resource online pre-loaded with OS updates, packages, and any software required to run without human intervention or further configuration. You can bootstrap a "barebones" instance of a particular OS distribution, or further bootstrap an already-customized AMI. Bootstrapping only occurs upon instance creation.
 
 This lab introduces the basics of updating your EC2 instance upon creation.
@@ -8,13 +19,18 @@ This lab introduces the basics of updating your EC2 instance upon creation.
 
 <a href="https://www.youtube.com/embed/n8XRNstKY6M?si=6-Sel4HujDR0QhX5" target="_new"><img src="https://s3.amazonaws.com/ds2002-resources/images/ec2-yutube.png"></a> 
 
-1. Establish what you need to bootstrap upon instance creation. In this example you will be working with an Ubuntu Linux distribution. This means you will be using the `apt` package manager as a start, and loading other resources as necessary.
+<br>
+
+## Notes Before the Instructions
+### 1. Establish what you need to bootstrap upon instance creation.
+
+In this example you will be working with an Ubuntu Linux distribution. This means you will be using the `apt` package manager as a start, and loading other resources as necessary.
 
 - Use `apt` to update the OS.
 - Use `apt` to install specific packages.
 - Use `apt` to install tools that install other supporting libraries or resources.
 
-1. For OS updates to the instance, a bootstrapping script might look something like this:
+### 2. For OS updates to the instance, a bootstrapping script might look something like this:
 
 ```
 #!/bin/bash
@@ -32,7 +48,7 @@ A few notes:
 - Take note that the -y flag has been included, since bootstrapping scripts are non-interactive. That is, you will not be present to answer "Y" or "N" when asked if you want to install new packages.
 - To "inject" your bootstrap script into an instance upon launch, find the User data field in the "Configure Instance" pane of the launch wizard, at the very bottom of the page under "Additional Details."
 
-1. To install specific packages, a bootstrapping script might look something like this:
+### 3. To install specific packages, a bootstrapping script might look something like this:
 
 ```
 #!/bin/bash
@@ -51,7 +67,8 @@ A few notes:
 - From there, `apt` is used to install specific packages non-interactively.
 - Remember that some commands, such as `pip` are not available by default and must be installed themselves.
 
-4. Another strategy for bootstrapping is to publish a `bash` or `cloud-init` script to a remote location, such as S3 or GitHub. This allows for centralized management of the script and a relatively "dumb" bootstrapping script to retrieve the remote file and execute it. In the example below, a pre-published GitHub gist is available in raw form.
+### 4. Another strategy for bootstrapping is to publish a `bash` or `cloud-init` script to a remote location, such as S3 or GitHub.
+This allows for centralized management of the script and a relatively "dumb" bootstrapping script to retrieve the remote file and execute it. In the example below, a pre-published GitHub gist is available in raw form.
 
 ```
 #!/bin/bash
@@ -67,9 +84,10 @@ A few notes:
 - At this point the script could be `chmod` to 755 and then executed `./bootstrap.sh` or executed against `bash`.
 - A security consideration is that a GitHub gist must either be public or hidden, though hidden does not mean secure. A more secure option would be to fetch the script from a private Amazon S3 bucket, and grant the EC2 instance role explicit READ privileges for the bucket.
 
-5. **Debugging**: If you are familiar with Docker you can use basic OS distribution containers (Ubuntu, Amazon Linux, CentOS, Debian, etc.) as a way to test bootstrapping scripts, determine software availability and path, and debug your bootstrapping process.
+### 5. Debugging
+If you are familiar with Docker you can use basic OS distribution containers (Ubuntu, Amazon Linux, CentOS, Debian, etc.) as a way to test bootstrapping scripts, determine software availability and path, and debug your bootstrapping process.
 
-6. To bootstrap programmatically, you can echo in user data, or pass it as a file:
+### 6. To bootstrap programmatically, you can echo in user data, or pass it as a file:
 
 ```
 aws ec2 run-instances --image-id ami-abcd1234 --count 1 --instance-type m3.medium \
@@ -77,7 +95,10 @@ aws ec2 run-instances --image-id ami-abcd1234 --count 1 --instance-type m3.mediu
   --user-data file://my_script.txt
 ```
 
-7. Your assignment in this lab is to bootstrap an EC2 instance yourself. Select 3 of the following packages or tools to install. To evaluate success, simply shell into the instance after the instance has been created (give the instance enough time to complete your setup) and verify. For more advanced bootstrapping of a service or daemon, open up the relevant port in your security group and test remotely. For instance, the nginx web server is a fairly simple daemon to bootstrap, and you can then use http://your-instance-ip-address/ to verify (if you open port 80 to the Internet).
+<br>
+
+## Lab Instructions: Now it's your turn!
+Your assignment in this lab is to bootstrap an EC2 instance yourself. Select 3 of the following packages or tools to install. To evaluate success, simply shell into the instance after the instance has been created (give the instance enough time to complete your setup) and verify. For more advanced bootstrapping of a service or daemon, open up the relevant port in your security group and test remotely. For instance, the nginx web server is a fairly simple daemon to bootstrap, and you can then use http://your-instance-ip-address/ to verify (if you open port 80 to the Internet).
 
 Refer to Running commands on your Linux instance at Launch for more detail.
 
@@ -92,11 +113,16 @@ Refer to Running commands on your Linux instance at Launch for more detail.
 - `mysql-server` (advanced)
 - `docker.io` (advanced)
 
-8. After you have shelled into your instance to verify all expected packages got installed, you should terminate your instance to clean up resources and stop incurring all costs. To stop your instance, select it from the list of instances, and from the ACTIONS menu select the INSTANCE STATE submenu, and then click on TERMINATE INSTANCE.
+<br>
+
+## Before you wrap up:
+After you have shelled into your instance to verify all expected packages got installed, you should terminate your instance to clean up resources and stop incurring all costs. To stop your instance, select it from the list of instances, and from the ACTIONS menu select the INSTANCE STATE submenu, and then click on TERMINATE INSTANCE.
 
 ![EC2](https://nmagee.github.io/ds2002/images/terminate-instance.png)
 
-1.  Final notes:
+<br>
+
+## Final notes:
 
 - At some point boostrapping becomes too large, too long, and too unwieldy. When you get to that point, consider creating your own AMI based upon a customized instance that has the tools and software you need.
 - Bootstrapping should be seen as prepping a "bare" instance for production.
@@ -104,6 +130,8 @@ Refer to Running commands on your Linux instance at Launch for more detail.
 - Some organizations never update instances after creation. Therefore, bootstrapping is the last point for refreshing and upgrading.
 - It is possible, though not common, for a bootstrapping action to hang. If this occurs, shell into the instance and try to debug. Or terminate the instance and try again.
 
+<br>
+
 ## WHAT TO SUBMIT
 
-Save your bootstrapping script as a file in your GitHub account. Submit the URL to the file in Canvas for review.
+Save your bootstrapping script as a file in your /mywork/Lab_8/ directory. Submit the URL to the file in Canvas for review.
